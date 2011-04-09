@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android" android:id="@android:id/tabhost"
+	android:layout_width="fill_parent" android:layout_height="fill_parent">
+	<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+		<TabWidget android:id="@android:id/tabs" android:layout_width="fill_parent" android:layout_height="wrap_content"
+			android:layout_margin="2dip" />
+		<FrameLayout android:id="@android:id/tabcontent" android:layout_width="fill_parent" android:layout_height="wrap_content">
+			<!-- <TextView android:id="@+id/tabView1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/tab1.content" 
+				/> -->
+			<!--<TableLayout android:id="@+id/tabView1" android:layout_width="fill_parent" android:layout_height="wrap_content"> <TableRow> 
+				<ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/c601" /> <TextView 
+				android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/tab1.content" /> </TableRow> 
+				<TableRow> <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/c601" 
+				/> <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/tab1.content" 
+				/> </TableRow> <TableRow> <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/c601" 
+				/> <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/tab1.content" 
+				/> </TableRow> </TableLayout> -->
+			<!--<LinearLayout android:id="@+id/tabView1" android:orientation="horizontal" android:layout_width="fill_parent"
+				android:layout_height="fill_parent">
+				<LinearLayout android:background="#00ff00" android:layout_width="32dp" android:layout_height="wrap_content">
+					<ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/c601" />
+				</LinearLayout>
+				<LinearLayout android:orientation="vertical" android:layout_width="fill_parent"
+					android:layout_height="wrap_content">
+					<LinearLayout android:background="#aaffee" android:layout_width="wrap_content" android:layout_height="wrap_content">
+						<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/tab1.content" />
+					</LinearLayout>
+					<LinearLayout android:background="#ddffcc" android:layout_width="wrap_content" android:layout_height="wrap_content">
+						<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/tab1.content" />
+					</LinearLayout>
+					<LinearLayout android:background="#bbffdd" android:layout_width="wrap_content" android:layout_height="wrap_content">
+						<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/tab1.content" />
+					</LinearLayout>
+				</LinearLayout>
+			</LinearLayout>
+			<TextView android:id="@+id/tabView2" android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:text="@string/tab2.content" />
+			<TextView android:id="@+id/tabView3" android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:text="@string/tab3.content" />
+		--></FrameLayout>
+	</LinearLayout>
+</TabHost>
