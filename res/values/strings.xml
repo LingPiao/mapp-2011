@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="tab1.title">我的关注</string>
+	<string name="tab1.content">我的关注</string>
+
+	<string name="tab2.title">最热机型</string>
+	<string name="tab2.content">最热机型</string>
+
+	<string name="tab3.title">最新机型</string>
+	<string name="tab3.content">最新机型</string>
+
+	<string name="tab4.title">搜索</string>
+	<string name="search">搜索</string>
+	<string name="app_name">手机低价天天查</string>
+</resources>
