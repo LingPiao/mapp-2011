@@ -20,7 +20,12 @@ public class XMLHandler extends DefaultHandler {
 			p.setTrend(attributes.getValue("trend"));
 			p.setPrice(attributes.getValue("price"));
 			p.setImage(attributes.getValue("image"));
-			p.setDesc(attributes.getValue("desc"));
+			String desc = attributes.getValue("desc");
+			if (desc.length() > Constants.MAX_DESCRIPTION_LENGTH) {
+				p.setDesc(desc.substring(0, Constants.MAX_DESCRIPTION_LENGTH) + "...");
+			} else {
+				p.setDesc(desc);
+			}
 			values.add(p);
 		}
 	}

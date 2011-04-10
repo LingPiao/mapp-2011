@@ -5,10 +5,10 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import org.apache.http.client.ResponseHandler;
+import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -51,14 +51,16 @@ public class HttpUtil {
 	public static String getXmlString(String url) {
 		String outputString = "";
 		DefaultHttpClient httpclient = new DefaultHttpClient();
-		HttpGet httpget = new HttpGet(url);
-		ResponseHandler<String> responseHandler = new BasicResponseHandler();
+
 		try {
-			outputString = httpclient.execute(httpget, responseHandler);
+			HttpResponse httpResponse = httpclient.execute(new HttpGet(url));
+			outputString = EntityUtils.toString(httpResponse.getEntity(), Constants.CONTENT_ENCODING);
 		} catch (Exception e) {
 			Log.e(Constants.MODULE_NAME, "Get xml from " + url + " error, caused by:" + e.getMessage());
 		}
+
 		httpclient.getConnectionManager().shutdown();
+
 		return outputString;
 	}
 }

@@ -79,4 +79,14 @@ public class FavoriteListAdapter extends BaseAdapter {
 		return convertView;
 	}
 
+	public void add(Phone phone) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("n01", "newPhone");
+		map.put("n02", "关注日:01-24 +200   评分:2.1");
+		map.put("n03", "个人觉得系统比较稳定，待机时间比较长内存小了，运行速度慢了，不支持多点触摸.");
+		list.add(map);
+		FavoriteListAdapter.this.notifyDataSetChanged();
+
+	}
+
 }

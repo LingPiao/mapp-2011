@@ -14,8 +14,8 @@ import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -96,15 +96,18 @@ public class HotTop10ListAdapter extends BaseAdapter {
 		myHolder.actionImage.setImageResource(R.drawable.list_add);
 
 		final int p = position;
+
 		myHolder.actionImage.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				Toast.makeText(v.getContext(), " Add " + p + " to my Favorite Tab.", Toast.LENGTH_SHORT).show();
 				// list.remove(p);
 				// TODO add to favorite xml file.
-				HotTop10ListAdapter.this.notifyDataSetChanged();
+				// HotTop10ListAdapter.this.notifyDataSetChanged();
+				// TabHost tabHost = getParent();
 			}
 		});
+
 		return convertView;
 	}
 
