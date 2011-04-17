@@ -1,17 +1,12 @@
 package com.mapp;
 
-import java.io.StringReader;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-
-import javax.xml.parsers.SAXParserFactory;
-
-import org.xml.sax.InputSource;
-import org.xml.sax.XMLReader;
+import java.util.Map;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -29,10 +24,10 @@ public class HotTop10ListAdapter extends BaseAdapter {
 
 	public HotTop10ListAdapter(Context contex) {
 		inflater = LayoutInflater.from(contex);
-		List<Phone> phones = loadPhones(Constants.TOP10_URL);
+		List<Phone> phones = XmlUtils.loadPhones(Constants.TOP10_URL);
 		for (Phone phone : phones) {
 			HashMap<String, Object> map = new HashMap<String, Object>();
-			map.put("id", phone.getId());
+			map.put("phoneId", phone.getId());
 			map.put("pname", phone.getPname());
 			map.put("appraise", "评分:" + phone.getAppraise());
 			map.put("description", phone.getDesc());
@@ -40,21 +35,6 @@ public class HotTop10ListAdapter extends BaseAdapter {
 			map.put("image", Constants.BASE_URL + phone.getImage());
 			list.add(map);
 		}
-	}
-
-	private List<Phone> loadPhones(String url) {
-		String xml = HttpUtil.getXmlString(url);
-		SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
-		XMLHandler handler = new XMLHandler();
-		try {
-			XMLReader reader = saxParserFactory.newSAXParser().getXMLReader();
-			reader.setContentHandler(handler);
-			reader.parse(new InputSource(new StringReader(xml)));
-		} catch (Exception e) {
-			Log.e(Constants.MODULE_NAME, e.getMessage());
-		}
-
-		return handler.getValues();
 	}
 
 	@Override
@@ -82,6 +62,7 @@ public class HotTop10ListAdapter extends BaseAdapter {
 			myHolder.tv02 = (TextView) convertView.findViewById(R.id.TextView02);
 			myHolder.tv03 = (TextView) convertView.findViewById(R.id.TextView03);
 			myHolder.tv04 = (TextView) convertView.findViewById(R.id.TextView04);
+			myHolder.phoneId = (TextView) convertView.findViewById(R.id.phoneId);
 			myHolder.iv = (ImageView) convertView.findViewById(R.id.ImageView01);
 			myHolder.actionImage = (ImageView) convertView.findViewById(R.id.actionImage);
 			convertView.setTag(myHolder);
@@ -92,6 +73,7 @@ public class HotTop10ListAdapter extends BaseAdapter {
 		myHolder.tv02.setText(list.get(position).get("appraise").toString());
 		myHolder.tv03.setText(list.get(position).get("description").toString());
 		myHolder.tv04.setText(list.get(position).get("price").toString());
+		myHolder.phoneId.setText(list.get(position).get("phoneId").toString());
 		myHolder.iv.setImageBitmap(HttpUtil.getBitMap(list.get(position).get("image").toString()));
 		myHolder.actionImage.setImageResource(R.drawable.list_add);
 
@@ -100,11 +82,14 @@ public class HotTop10ListAdapter extends BaseAdapter {
 		myHolder.actionImage.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(v.getContext(), " Add " + p + " to my Favorite Tab.", Toast.LENGTH_SHORT).show();
-				// list.remove(p);
-				// TODO add to favorite xml file.
-				// HotTop10ListAdapter.this.notifyDataSetChanged();
-				// TabHost tabHost = getParent();
+				@SuppressWarnings("unchecked")
+				Map<String, Object> selected = (HashMap<String, Object>) HotTop10ListAdapter.this.getItem(p);
+				Phone phone = PhoneCache.getInstance().getPhone(selected.get("phoneId").toString());
+				phone.setWatchedDate(new Date(System.currentTimeMillis()));
+				MyFavoriteHolder.getInstance().addFavorite(phone);
+				XmlUtils.saveFavorites(HotTop10ListAdapter.this.inflater.getContext().getFilesDir().getAbsolutePath());
+				// FavoriteListAdapter.this.notifyDataSetChanged();
+				Toast.makeText(v.getContext(), " Add " + p + " ,id=" + phone.getId() + " to my Favorite Tab.", Toast.LENGTH_SHORT).show();
 			}
 		});
 
