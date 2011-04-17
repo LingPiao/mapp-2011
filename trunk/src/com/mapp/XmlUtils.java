@@ -33,9 +33,9 @@ public class XmlUtils {
 		try {
 			File xml = new File(xmlFileName);
 			out = new FileOutputStream(xml);
-			serializer.setOutput(out, "UTF-8");
+			serializer.setOutput(out, Constants.CONTENT_ENCODING);
 			// <?xml version="1.0″ encoding="UTF-8″ standalone="yes"?>
-			serializer.startDocument("UTF-8", true);
+			serializer.startDocument(Constants.CONTENT_ENCODING, true);
 			// <favorites>
 			serializer.startTag("", "favorites");
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
