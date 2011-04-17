@@ -31,13 +31,19 @@ public class MApp extends TabActivity {
 		tabHost.addTab(tabHost.newTabSpec("TAB_LASTEST").setIndicator(getResources().getString(R.string.tab3_title))
 				.setContent(new Intent().setClass(this, LastestView.class)));
 
-		tabHost.addTab(tabHost.newTabSpec("TAB_SEARCH").setIndicator(getResources().getString(R.string.tab4_title)).setContent(
-				new Intent().setClass(this, SearchView.class)));
+		tabHost.addTab(tabHost.newTabSpec("TAB_SEARCH").setIndicator(getResources().getString(R.string.tab4_title))
+				.setContent(new Intent().setClass(this, SearchView.class)));
 
 		tabHost.setBackgroundColor(Color.argb(150, 109, 115, 131));
 		// tabHost.setBackgroundResource(R.drawable.icon);
 
-		tabHost.setCurrentTab(0);
+		XmlUtils.loadMyfavorites(MApp.this.getCurrentActivity().getApplicationContext().getFilesDir().getAbsolutePath() + "/" + Constants.FAVORITES_FILE);
+
+		if (MyFavoriteHolder.getInstance().hasItems()) {
+			tabHost.setCurrentTab(0);
+		} else {
+			tabHost.setCurrentTab(1);
+		}
 
 	}
 }

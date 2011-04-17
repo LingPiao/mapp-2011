@@ -1,5 +1,7 @@
 package com.mapp;
 
+import java.util.Date;
+
 public class Phone {
 	private String id;
 	private String pname;
@@ -8,6 +10,7 @@ public class Phone {
 	private String appraise;
 	private String image;
 	private String desc;
+	private Date watchedDate;
 
 	public String getId() {
 		return id;
@@ -63,6 +66,14 @@ public class Phone {
 
 	public void setDesc(String desc) {
 		this.desc = desc;
+	}
+
+	public Date getWatchedDate() {
+		return watchedDate;
+	}
+
+	public void setWatchedDate(Date watchedDate) {
+		this.watchedDate = watchedDate;
 	}
 
 }
