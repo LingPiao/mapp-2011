@@ -1,31 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/FavoriteListViewItemLayout" android:background="#ffffff" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/FavoriteListViewItemLayout"
+	android:background="#ffffff" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent"
 	android:padding="3dip">
 	<LinearLayout android:layout_width="40dip" android:layout_height="wrap_content">
-		<ImageView android:id="@+id/ImageView01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/c601" />
+		<ImageView android:id="@+id/ImageView01" android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:src="@drawable/c601" />
 	</LinearLayout>
-	<LinearLayout android:orientation="vertical" android:layout_weight="2" android:layout_width="200dip" android:layout_height="fill_parent">
+	<LinearLayout android:orientation="vertical" android:layout_weight="2" android:layout_width="200dip"
+		android:layout_height="fill_parent">
 		<LinearLayout android:layout_weight="1" android:layout_width="wrap_content" android:layout_height="wrap_content">
-			<TextView android:textColor="#000000" android:id="@+id/TextView01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/tab1.content" />
+			<TextView android:textColor="#000000" android:id="@+id/TextView01" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="@string/tab1.content" />
 		</LinearLayout>
 		<LinearLayout android:layout_weight="1" android:layout_width="wrap_content" android:layout_height="wrap_content">
-			<TextView android:textColor="#000000" android:id="@+id/TextView02" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/tab1.content" />
+			<TextView android:textColor="#000000" android:id="@+id/TextView02" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="@string/tab1.content" />
 		</LinearLayout>
 		<LinearLayout android:layout_weight="1" android:layout_width="wrap_content" android:layout_height="wrap_content">
-			<TextView android:textColor="#000000" android:id="@+id/TextView03" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/tab1.content" />
+			<TextView android:textColor="#000000" android:id="@+id/TextView03" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="@string/tab1.content" />
 		</LinearLayout>
 	</LinearLayout>
 	<LinearLayout android:orientation="vertical" android:layout_width="50dip" android:layout_height="fill_parent">
-		<LinearLayout android:layout_weight="5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center_vertical">
-			<TextView android:textColor="#0000FF" android:id="@+id/TextView04" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="￥2000" />
+		<LinearLayout android:layout_weight="5" android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:gravity="center_vertical">
+			<TextView android:textColor="#0000FF" android:id="@+id/TextView04" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="￥2000" />
 		</LinearLayout>
-		<LinearLayout android:layout_weight="1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center_vertical">
-			<ImageView android:id="@+id/actionImage" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/list_remove" />
-			<!--
-				<TextView android:id="@+id/TextView03"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content" android:text="Action" />
-			-->
+		<LinearLayout android:layout_weight="1" android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:gravity="center_vertical">
+			<ImageView android:id="@+id/actionImage" android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:src="@drawable/list_remove" />
+			<!-- <TextView android:id="@+id/TextView03" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Action" 
+				/> -->
 		</LinearLayout>
+	<TextView android:id="@+id/phoneId" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone" android:text="" />
 	</LinearLayout>
 </LinearLayout>
