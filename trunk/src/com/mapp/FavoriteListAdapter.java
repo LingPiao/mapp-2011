@@ -1,5 +1,6 @@
 package com.mapp;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -24,11 +25,13 @@ public class FavoriteListAdapter extends BaseAdapter {
 	public FavoriteListAdapter(Context contex) {
 		inflater = LayoutInflater.from(contex);
 		List<Phone> favorites = MyFavoriteHolder.getInstance().getFavorites();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		for (Phone phone : favorites) {
 			HashMap<String, Object> map = new HashMap<String, Object>();
 			map.put("phoneId", phone.getId());
 			map.put("pname", phone.getPname());
-			map.put("appraise", "评分:" + phone.getAppraise());
+			map.put("appraise", phone.getAppraise());
+			map.put("watchedDate", sdf.format(phone.getWatchedDate()));
 			map.put("description", phone.getDesc());
 			map.put("price", Constants.CHINA_YUN + phone.getPrice());
 			map.put("image", Constants.BASE_URL + phone.getImage());
@@ -69,7 +72,7 @@ public class FavoriteListAdapter extends BaseAdapter {
 			myHolder = (FavoriteViewHolder) convertView.getTag();
 		}
 		myHolder.tv01.setText(list.get(position).get("pname").toString());
-		myHolder.tv02.setText(list.get(position).get("appraise").toString());
+		myHolder.tv02.setText("关注日:" + list.get(position).get("watchedDate").toString() + " 评分:" + list.get(position).get("appraise").toString());
 		myHolder.tv03.setText(list.get(position).get("description").toString());
 		myHolder.tv04.setText(list.get(position).get("price").toString());
 		myHolder.phoneId.setText(list.get(position).get("phoneId").toString());
