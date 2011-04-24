@@ -12,4 +12,5 @@
 	<string name="tab4.title">搜索</string>
 	<string name="search">搜索</string>
 	<string name="app_name">手机低价天天查</string>
+	<string name="search.text.required">请告诉我你要搜索什么</string>
 </resources>
