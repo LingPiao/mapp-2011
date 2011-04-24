@@ -8,6 +8,7 @@ public class Constants {
 	public final static String CONTENT_ENCODING = "utf-8";
 	public final static String TOP10_URL = BASE_URL + "phone.xml";
 	public final static String LASTEST_URL = BASE_URL + "phone.xml";
+	public final static String SEARCH_URL = BASE_URL + "phone.xml"; // "search.jsp?text=";
 	public final static String CHINA_YUN = "￥";
 
 }
